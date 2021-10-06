@@ -1,0 +1,9 @@
+= JFR Polyfill
+
+This `jfr-polyfill` library is for those projects that still have to support old JDKs that don't have Java Flight Recorder (JFR) support,
+but still want to be able to leverage JFR when it is available.
+
+== Usage Instructions
+
+Just add `jfr-polyfill` as a dependency, it will serve as fallback implementation when JFR is not available.
+If JFR is available it is on the boot classpath and will take priority over theK polyfill.
