@@ -40,7 +40,7 @@ jobs:
             ./gradlew --version
       - name: 'Build Polyfill'
         run: |
-          ./gradlew "testOn${{ matrix.variant }}"
+          ./gradlew "testOn${{ matrix.java }}"
       - name: 'Stop Daemon'
         run: |
           ./gradlew --stop
