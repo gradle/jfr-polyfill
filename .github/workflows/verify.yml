@@ -29,18 +29,12 @@ jobs:
       - name: 'Set up JDK 8'
         uses: actions/setup-java@v2
         with:
-            cache: 'gradle'
             distribution: 'adopt'
             java-version: 8
       - name: Prepare JDK8 env var
         shell: bash
         run: echo "JDK8=$JAVA_HOME" >> $GITHUB_ENV
-      - name: 'Gradle Version'
-        run: |
-            ./gradlew --version
       - name: 'Build Polyfill'
-        run: |
-          ./gradlew "testOn${{ matrix.java }}"
-      - name: 'Stop Daemon'
-        run: |
-          ./gradlew --stop
+        uses: gradle/gradle-build-action@v2
+        with:
+            arguments: "testOn${{ matrix.java }}"
