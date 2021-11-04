@@ -26,30 +26,34 @@
 package jdk.jfr;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation that sets a human-readable name for an element (for example,
- * {@code "Maximum Throughput"}).
+ * Annotation that specifies that an element is experimental and may change
+ * without notice.
  * <p>
- * Use headline-style capitalization, capitalize the first and last words, and
- * all nouns, pronouns, adjectives, verbs and adverbs. Do not include ending
- * punctuation.
+ * Clients that visualize Flight Recorder events should <em>not</em> show the
+ * events or fields annotated with the {@code Experimental} annotation by
+ * default. This annotation allows event producers the freedom to try out new
+ * events without committing to them.
  * <p>
- * The label should not be used as an identifier, see {@link Name}.
+ * Clients may provide a check box (for example, in a preference page) where a
+ * user can opt-in to display experimental data. If the user decide to do so,
+ * the user interface should mark experimental events or fields so users can
+ * distinguish them from non-experimental events.
+ * <p>
+ * This annotation is inherited.
  *
  * @since 8
  */
 @MetadataDefinition
-@Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
+@Label("Experimental")
+@Description("Element is not to be shown to a user by default")
+@Inherited
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Label {
-    /**
-     * Returns a human-readable name for the annotated element.
-     *
-     * @return a human-readable name, not {@code null}
-     */
-    String value();
+@Target({ ElementType.FIELD, ElementType.TYPE })
+public @interface Experimental {
 }

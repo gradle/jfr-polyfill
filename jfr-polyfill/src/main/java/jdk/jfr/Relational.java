@@ -35,6 +35,8 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@Label("Relation")
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)
 public @interface Relational {

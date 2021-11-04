@@ -36,6 +36,9 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@ContentType
+@Label("Flag")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.TYPE, ElementType.METHOD})
 public @interface BooleanFlag {

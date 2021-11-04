@@ -22,7 +22,6 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
-
 package jdk.jfr;
 
 import java.lang.annotation.ElementType;
@@ -31,25 +30,41 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation that sets a human-readable name for an element (for example,
- * {@code "Maximum Throughput"}).
+ * Annotation that specifies that a method in an event class should be used to
+ * filter out events.
  * <p>
- * Use headline-style capitalization, capitalize the first and last words, and
- * all nouns, pronouns, adjectives, verbs and adverbs. Do not include ending
- * punctuation.
+ * For the method to be valid it must return a {@code SettingControl} and only have one
+ * parameter, which should be a non-abstract subclass of {@link SettingControl}
  * <p>
- * The label should not be used as an identifier, see {@link Name}.
+ * The return value of the method specifies whether the event is to be
+ * written to the Flight Recorder system or not.
+ * <p>
+ * The following example shows how to annotate a method in an event class.
+ *
+ * <pre>
+ * <code>
+ * class HelloWorld extend Event {
+ *
+ *   {@literal @}Label("Message");
+ *   String message;
+ *
+ *   {@literal @}SettingDefinition;
+ *   {@literal @}Label("Message Filter");
+ *   public boolean filter(RegExpControl regExp) {
+ *     return regExp.matches(message);
+ *   }
+ * }
+ * </code>
+ * </pre>
+ *
+ * For an example of how the setting controls are defined, see
+ * {@link SettingControl}.
+ *
+ * @see SettingControl
  *
  * @since 8
  */
-@MetadataDefinition
-@Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Label {
-    /**
-     * Returns a human-readable name for the annotated element.
-     *
-     * @return a human-readable name, not {@code null}
-     */
-    String value();
+@Target({ ElementType.METHOD })
+public @interface SettingDefinition {
 }

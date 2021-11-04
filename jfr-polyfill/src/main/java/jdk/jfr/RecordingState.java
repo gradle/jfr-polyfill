@@ -25,31 +25,47 @@
 
 package jdk.jfr;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-
 /**
- * Annotation that sets a human-readable name for an element (for example,
- * {@code "Maximum Throughput"}).
- * <p>
- * Use headline-style capitalization, capitalize the first and last words, and
- * all nouns, pronouns, adjectives, verbs and adverbs. Do not include ending
- * punctuation.
- * <p>
- * The label should not be used as an identifier, see {@link Name}.
+ * Indicates a state in the life cycle of a recording.
  *
  * @since 8
  */
-@MetadataDefinition
-@Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Label {
+public enum RecordingState {
+
     /**
-     * Returns a human-readable name for the annotated element.
-     *
-     * @return a human-readable name, not {@code null}
+     * The initial state when a {@code Recording} is created.
      */
-    String value();
+    NEW,
+
+    /**
+     * The recording is scheduled to start with a start time in the future.
+     * <p>
+     * An invocation of the {@link Recording#start()} method will transition the
+     * recording to the {@code RUNNING} state.
+     */
+    DELAYED,
+
+    /**
+     * The recording is recording data and an invocation of the {@link Recording#stop()}
+     * method will transition the recording to the {@code STOPPED} state.
+     */
+    RUNNING,
+
+    /**
+     * The recording is stopped and is holding recorded data that can be dumped to
+     * disk.
+     * <p>
+     * An invocation of the {@link Recording#close()} method will release the
+     * data and transition the recording to the {@code CLOSED} state.
+     */
+    STOPPED,
+
+    /**
+     * The recording is closed and all resources that are associated with the
+     * recording are released.
+     * <p>
+     * Nothing that can be done with a recording from this point, and it's
+     * no longer retrievable from the {@code FlightRrecorder.getRecordings()} method.
+     */
+    CLOSED;
 }

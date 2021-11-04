@@ -36,6 +36,9 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@Label("Content Type")
+@Description("Semantic meaning of a value")
 @Target(ElementType.ANNOTATION_TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ContentType {

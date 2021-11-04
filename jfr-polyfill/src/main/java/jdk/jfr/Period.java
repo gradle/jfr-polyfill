@@ -36,6 +36,7 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
 @Target(ElementType.TYPE)

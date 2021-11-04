@@ -41,6 +41,7 @@ import java.lang.annotation.Target;
 @Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
+@MetadataDefinition
 public @interface Enabled {
     /**
      * Setting name {@code "enabled"}, signifies that the event should be

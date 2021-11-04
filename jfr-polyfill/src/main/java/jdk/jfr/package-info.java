@@ -44,10 +44,10 @@
  * available in the <code>Event</code> class.
  * <p>
  * Gathering data to store in an event can be expensive. The
- * {@link jdk.jfr.Event#shouldCommit()} method can be used to verify whether an event
+ * {@link Event#shouldCommit()} method can be used to verify whether an event
  * instance would actually be written to the system when the
  * {@code Event#commit()} method is invoked. If
- * {@link jdk.jfr.Event#shouldCommit()} returns {@code false}, then those operations can be
+ * {@link Event#shouldCommit()} returns {@code false}, then those operations can be
  * avoided.
  * <p>
  * Sometimes the field layout of an event is not known at compile time. In that

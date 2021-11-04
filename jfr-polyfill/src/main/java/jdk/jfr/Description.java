@@ -39,6 +39,7 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
 @Target({ ElementType.TYPE, ElementType.FIELD, ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Description {

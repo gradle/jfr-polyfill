@@ -35,6 +35,10 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@ContentType
+@Label("Data Amount")
+@Description("Amount of data")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.TYPE, ElementType.METHOD})
 public @interface DataAmount {

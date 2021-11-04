@@ -35,6 +35,10 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@ContentType
+@Label("Unsigned Value")
+@Description("Value should be interpreted as unsigned data type")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.FIELD, ElementType.TYPE })
 public @interface Unsigned {

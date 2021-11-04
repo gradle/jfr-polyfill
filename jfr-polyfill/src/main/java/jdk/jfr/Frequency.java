@@ -35,6 +35,10 @@ import java.lang.annotation.Target;
  *
  * @since 8
  */
+@MetadataDefinition
+@ContentType
+@Label("Frequency")
+@Description("Measure of how often something occurs, in Hertz")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD})
 public @interface Frequency {
