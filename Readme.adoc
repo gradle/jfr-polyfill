@@ -1,9 +1,22 @@
+https://github.com/gradle/jfr-polyfill/blob/master/jfr-polyfill/LICENSE.txt[image:https://img.shields.io/badge/License-GPL%202.0-blue.svg[License]]
+https://search.maven.org/search?q=g:org.gradle%20AND%20a:jfr-polyfill[image:https://img.shields.io/maven-central/v/org.gradle/jfr-polyfill.svg?label=Maven%20Central[Maven Central]]
+https://github.com/gradle/jfr-polyfill/actions?query=workflow%3A%22verify%22+branch%3Amaster[image:https://img.shields.io/github/workflow/status/gradle/jfr-polyfill/verify/master[GitHub Workflow Status]]
+
 = JFR Polyfill
 
-This `jfr-polyfill` library is for those projects that still have to support old JDKs that don't have Java Flight Recorder (JFR) support,
-but still want to be able to leverage JFR when it is available.
+https://en.wikipedia.org/wiki/JDK_Flight_Recorder[JDK Flight Recorder (JFR)] is a high performance event recorder built into the Java virtual machine.
+It was open sourced with OpenJDK 11 and then back-ported to OpenJDK 8.
+
+The `jfr-polyfill` library is a no-op polyfill implementation of the `jdk.jfr.*` interfaces and classes.
+The goal is to enable projects to add JFR events to their codebase without dropping support for old JDKs that don't support JFR.
+The polyfill will not provide any recordings on unsupported JDKs, but it will prevent `ClassNotFoundError`.
 
 == Usage Instructions
 
 Just add `jfr-polyfill` as a dependency, it will serve as fallback implementation when JFR is not available.
-If JFR is available it is on the boot classpath and will take priority over theK polyfill.
+If native JFR is available, it is on the boot classpath and will take priority over the polyfill.
+
+
+== Contributing
+
+This project adheres to the https://gradle.org/conduct/[Gradle Code of Conduct]. By participating, you are expected to uphold this code.
