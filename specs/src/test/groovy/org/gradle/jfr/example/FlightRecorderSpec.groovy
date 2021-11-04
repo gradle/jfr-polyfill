@@ -43,7 +43,7 @@ class FlightRecorderSpec extends Specification {
 
     def "check if jfr is available as expected"() {
         expect:
-        flightRecorder.jfrAvailable != Jvm.current.isJava9() || Jvm.current.isJava10()
+        flightRecorder.jfrAvailable != JfrInfo.jfrPolyfillExpected
     }
 
 }

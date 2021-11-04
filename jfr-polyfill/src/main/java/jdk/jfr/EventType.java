@@ -172,7 +172,7 @@ public final class EventType {
      */
     public static EventType getEventType(Class<? extends Event> eventClass) {
         Objects.requireNonNull(eventClass);
-        return null;
+        return new EventType();
     }
 
     /**
