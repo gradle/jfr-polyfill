@@ -25,17 +25,8 @@
 
 package jdk.jfr;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
-
-import jdk.jfr.internal.EventClassBuilder;
-import jdk.jfr.internal.JVMSupport;
-import jdk.jfr.internal.MetadataRepository;
-import jdk.jfr.internal.Type;
-import jdk.jfr.internal.Utils;
 
 /**
  * Class for defining an event at runtime.

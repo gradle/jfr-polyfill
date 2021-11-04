@@ -29,11 +29,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Path;
 import java.text.ParseException;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * A collection of settings and metadata describing the configuration.
