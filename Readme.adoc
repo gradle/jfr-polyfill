@@ -1,4 +1,4 @@
-https://github.com/gradle/jfr-polyfill/blob/master/jfr-polyfill/LICENSE.txt[image:https://img.shields.io/badge/License-GPLv2%20%2B%20Classpath%20exception-blue[License]]
+https://github.com/gradle/jfr-polyfill/blob/master/LICENSE[image:https://img.shields.io/badge/License-GPLv2%20%2B%20Classpath%20exception-blue[License]]
 https://search.maven.org/search?q=g:org.gradle%20AND%20a:jfr-polyfill[image:https://img.shields.io/maven-central/v/org.gradle/jfr-polyfill.svg?label=Maven%20Central[Maven Central]]
 https://github.com/gradle/jfr-polyfill/actions?query=workflow%3A%22verify%22+branch%3Amaster[image:https://img.shields.io/github/workflow/status/gradle/jfr-polyfill/verify/master[GitHub Workflow Status]]
 
