@@ -11,6 +11,8 @@ The `jfr-polyfill` library is a no-op polyfill implementation of the `jdk.jfr.*`
 The goal is to enable projects to add JFR events to their codebase without dropping support for old JDKs that don't support JFR.
 The polyfill will not provide any recordings on unsupported JDKs, but it will prevent `ClassNotFoundError`.
 
+If you want to know more, read the <<docs/jdk_jfr_support_investigation.adoc#investigation, investigation>> into which JDKs support JFR, and how you can validate your own JDKs.
+
 == Usage Instructions
 
 Just add `jfr-polyfill` as a dependency, it will serve as fallback implementation when JFR is not available.
