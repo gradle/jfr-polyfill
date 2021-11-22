@@ -26,6 +26,7 @@
 
 plugins {
     id("com.gradle.enterprise") version "3.7.1"
+    id("com.gradle.enterprise.gradle-enterprise-conventions-plugin") version "0.7.4"
 }
 
 dependencyResolutionManagement {
