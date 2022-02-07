@@ -1,9 +1,8 @@
 https://github.com/gradle/jfr-polyfill/blob/master/LICENSE[image:https://img.shields.io/badge/License-GPLv2%20%2B%20Classpath%20exception-blue[License]]
 https://search.maven.org/search?q=g:org.gradle%20AND%20a:jfr-polyfill[image:https://img.shields.io/maven-central/v/org.gradle/jfr-polyfill.svg?label=Maven%20Central[Maven Central]]
-https://github.com/gradle/jfr-polyfill/actions?query=workflow%3A%22verify%22+branch%3Amaster[image:https://img.shields.io/github/workflow/status/gradle/jfr-polyfill/verify/master[GitHub Workflow Status]]
+https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml[image:https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml/badge.svg?branch=master[GitHub Workflow Status]]
 
 = JFR Polyfill
-
 https://en.wikipedia.org/wiki/JDK_Flight_Recorder[JDK Flight Recorder (JFR)] is a high performance event recorder built into the Java virtual machine.
 It was open sourced with OpenJDK 11 and then back-ported to OpenJDK 8.
 
