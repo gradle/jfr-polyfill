@@ -24,7 +24,6 @@ project {
                 useGradleWrapper = true
                 tasks = "clean publishMavenJavaPublicationToSonatypeRepository"
                 gradleParams = "--build-cache"
-                buildFile = "build.gradle.kts"
             }
         }
         params {
