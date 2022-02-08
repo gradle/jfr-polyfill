@@ -1,7 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.gradle
 
-version = "2021.1"
+version = "2021.2"
 
 project {
     buildType{
@@ -23,13 +23,13 @@ project {
             gradle {
                 useGradleWrapper = true
                 tasks = "clean publishMavenJavaPublicationToSonatypeRepository"
-                gradleParams = "--build-cache -Dgradle.publish.skip.namespace.check=true"
+                gradleParams = "--build-cache"
                 buildFile = "build.gradle.kts"
             }
         }
         params {
-            param("env.MAVEN_CENTRAL_STAGING_REPO_USER", "%mavenCentralStagingRepoUser%")
-            password("env.MAVEN_CENTRAL_STAGING_REPO_PASSWORD", "%mavenCentralStagingRepoPassword%")
+            param("env.ORG_GRADLE_PROJECT_sonatypeUsername", "%mavenCentralStagingRepoUser%")
+            password("env.ORG_GRADLE_PROJECT_sonatypePassword", "%mavenCentralStagingRepoPassword%")
         }
     }
     params {
