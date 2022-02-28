@@ -29,6 +29,8 @@ project {
         params {
             param("env.ORG_GRADLE_PROJECT_sonatypeUsername", "%mavenCentralStagingRepoUser%")
             password("env.ORG_GRADLE_PROJECT_sonatypePassword", "%mavenCentralStagingRepoPassword%")
+            password("env.PGP_SIGNING_KEY", "%pgpSigningKey%")
+            password("env.PGP_SIGNING_KEY_PASSPHRASE", "%pgpSigningPassphrase%")
         }
     }
     params {
