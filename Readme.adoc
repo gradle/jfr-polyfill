@@ -1,5 +1,5 @@
 https://github.com/gradle/jfr-polyfill/blob/master/LICENSE[image:https://img.shields.io/badge/License-GPLv2%20%2B%20Classpath%20exception-blue[License]]
-https://search.maven.org/search?q=g:org.gradle%20AND%20a:jfr-polyfill[image:https://img.shields.io/maven-central/v/org.gradle/jfr-polyfill.svg?label=Maven%20Central[Maven Central]]
+https://search.maven.org/search?q=g:org.gradle.jfr.polyfill%20AND%20a:jfr-polyfill[image:https://img.shields.io/maven-central/v/org.gradle/jfr-polyfill.svg?label=Maven%20Central[Maven Central]]
 https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml[image:https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml/badge.svg?branch=master[GitHub Workflow Status]]
 
 = JFR Polyfill
@@ -14,10 +14,30 @@ If you want to know more, read the <<docs/jdk_jfr_support_investigation.adoc#inv
 
 == Usage Instructions
 
-Just add `jfr-polyfill` as a dependency, it will serve as fallback implementation when JFR is not available.
+Just add `org.gradle.jfr.polyfill:jfr-polyfill` (https://search.maven.org/search?q=g:org.gradle.jfr.polyfill%20AND%20a:jfr-polyfill[latest version]) as a dependency, it will serve as fallback implementation when JFR is not available.
 If native JFR is available, it is on the boot classpath and will take priority over the polyfill.
-
 
 == Contributing
 
 This project adheres to the https://gradle.org/conduct/[Gradle Code of Conduct]. By participating, you are expected to uphold this code.
+
+== Releasing
+
+Only for Gradle employees with access to TeamCity.
+
+1. Make sure that the version you want to release ist set in `gradle.properties`
+2. Update the <<changes>> section below
+3. Push the changes to the `master` branch on GitHub
+4. Wait until the https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml[verify workflow] has run successfully
+5. Go to the https://builds.gradle.org/buildConfiguration/OpenSourceProjects_JfrPolyfill_PublishJfrPolyfill[Publish JFR Polyfill] job on the commit you want to release. This job publishes everything to the Maven Central staging repository.
+6. https://s01.oss.sonatype.org/#stagingRepositories[Login to Sonatype], close the staging repository after reviewing its contents.
+7. Release the staging repository.
+8. Tag the commit you just release with the version number `git tag -s VERSION -m "Tag VERSION release" && git push --tags`
+9. Go to the https://github.com/gradle/jfr-polyfill/releases[Releases section on GitHub] and create a new release using the tag you just pushed. Copy the release notes from the <<changes>> section into the release description.
+10. Bump the version in the `gradle.properties` to the next snapshot version. Push the change to master branch.
+
+
+[[changes]]
+== Changes
+
+=== 1.0.0 - Initial release
