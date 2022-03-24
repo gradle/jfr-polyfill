@@ -6,7 +6,7 @@ https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml[image:https:
 https://en.wikipedia.org/wiki/JDK_Flight_Recorder[JDK Flight Recorder (JFR)] is a high performance event recorder built into the Java virtual machine.
 It was open sourced with OpenJDK 11 and then back-ported to OpenJDK 8.
 
-The `jfr-polyfill` library is a no-op polyfill implementation of the `jdk.jfr.*` interfaces and classes.
+The `jfr-polyfill` library is a no-op https://en.wikipedia.org/wiki/Polyfill_(programming)[polyfill] implementation of the `jdk.jfr.*` interfaces and classes.
 The goal is to enable projects to add JFR events to their codebase without dropping support for old JDKs that don't support JFR.
 The polyfill will not provide any recordings on unsupported JDKs, but it will prevent `ClassNotFoundError`.
 
