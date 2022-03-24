@@ -27,6 +27,7 @@ package jdk.jfr;
 
 import jdk.jfr.internal.Control;
 
+import java.security.AccessControlContext;
 import java.security.AccessController;
 import java.util.Set;
 
@@ -153,7 +154,7 @@ public abstract class SettingControl extends Control {
      * Constructor for invocation by subclass constructors.
      */
     protected SettingControl() {
-        super(AccessController.getContext());
+        super((AccessControlContext) null);
 
     }
 
