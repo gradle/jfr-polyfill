@@ -37,10 +37,7 @@ java {
 
 dependencies {
     testImplementation(project(":jfr-polyfill"))
-
-    testImplementation("org.codehaus.groovy:groovy:3.0.9")
-
-    testImplementation("org.spockframework:spock-core:2.0-groovy-3.0")
+    testImplementation("org.spockframework:spock-core:2.1-groovy-3.0")
 }
 
 for (javaVersion in 8..17) {
@@ -56,4 +53,3 @@ tasks.withType<Test>().configureEach {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
-
