@@ -20,8 +20,3 @@ If native JFR is available, it is on the boot classpath and will take priority o
 == Contributing
 
 This project adheres to the https://gradle.org/conduct/[Gradle Code of Conduct]. By participating, you are expected to uphold this code.
-
-[[changes]]
-== Changes
-
-=== 1.0.0 - Initial release
