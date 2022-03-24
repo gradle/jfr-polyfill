@@ -245,4 +245,17 @@ public final class FlightRecorder {
     public static boolean isAvailable() {
         return false;
     }
+
+    /**
+     * Returns {@code true} if Flight Recorder is initialized.
+     *
+     * @return {@code true}, if Flight Recorder is initialized,
+     *         {@code false} otherwise
+     *
+     * @see FlightRecorderListener for callback when Flight Recorder is
+     *      initialized
+     */
+    public static boolean isInitialized() {
+        return false;
+    }
 }

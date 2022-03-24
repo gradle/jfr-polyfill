@@ -25,6 +25,9 @@
 
 package jdk.jfr;
 
+import jdk.jfr.internal.Control;
+
+import java.security.AccessController;
 import java.util.Set;
 
 /**
@@ -143,12 +146,15 @@ import java.util.Set;
  * @since 8
  */
 @MetadataDefinition
-public abstract class SettingControl {
+public abstract class SettingControl extends Control {
+
 
     /**
      * Constructor for invocation by subclass constructors.
      */
     protected SettingControl() {
+        super(AccessController.getContext());
+
     }
 
     /**
