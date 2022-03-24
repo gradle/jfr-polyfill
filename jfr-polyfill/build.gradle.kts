@@ -24,10 +24,13 @@
  * questions.
  */
 
+import me.champeau.gradle.japicmp.JapicmpTask
+
 plugins {
     `java-library`
     `maven-publish`
     signing
+    id("me.champeau.gradle.japicmp") version "0.4.0"
 }
 
 java {
@@ -36,6 +39,24 @@ java {
     }
 }
 
+tasks {
+    val japicmp by registering(JapicmpTask::class) {
+        val jdkJfrJar = project.javaToolchains.launcherFor(java.toolchain)
+            .map { it.metadata.installationPath.file("jre/lib/jfr.jar") }
+        oldClasspath.from(jdkJfrJar)
+        newClasspath.from(jar)
+        packageIncludes.add("jdk.jfr")
+        failOnModification.set(true)
+        onlyBinaryIncompatibleModified.set(true)
+        htmlOutputFile.set(layout.buildDirectory.file("reports/japi.html"))
+        doFirst {
+            println("Comparing ${jdkJfrJar.get()} against polyfill")
+        }
+    }
+    check {
+        dependsOn(japicmp)
+    }
+}
 
 publishing {
     publications.create<MavenPublication>("mavenJava") {
