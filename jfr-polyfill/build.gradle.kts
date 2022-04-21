@@ -37,6 +37,12 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(8))
     }
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.javadoc {
+    (options as StandardJavadocDocletOptions).tags("implNote", "implSpec")
 }
 
 tasks {
