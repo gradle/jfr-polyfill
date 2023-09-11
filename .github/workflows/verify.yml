@@ -17,15 +17,17 @@ jobs:
         java: ['8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
     steps:
       - uses: actions/checkout@v4
+
       - name: 'Set up JDK ${{ matrix.java }}'
         uses: actions/setup-java@v3
         if: matrix.java != 8
         with:
-            distribution: 'temurin'
+            distribution: ${{ matrix.java < 17 && 'adopt' || 'temurin' }}
             java-version: ${{ matrix.java }}
       - name: 'Prepare JDK${{ matrix.java }} env var'
         shell: bash
         run: echo "JDK${{ matrix.java }}=$JAVA_HOME" >> $GITHUB_ENV
+
       - name: 'Set up JDK 8'
         uses: actions/setup-java@v3
         with:
@@ -34,7 +36,8 @@ jobs:
       - name: Prepare JDK8 env var
         shell: bash
         run: echo "JDK8=$JAVA_HOME" >> $GITHUB_ENV
+
       - name: 'Build Polyfill'
         uses: gradle/gradle-build-action@v2
         with:
-            arguments: "testOn${{ matrix.java }}"
+            arguments: "testsOn${{ matrix.java }}"
