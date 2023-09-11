@@ -40,7 +40,7 @@ dependencies {
     testImplementation("org.spockframework:spock-core:2.1-groovy-3.0")
 }
 
-for (javaVersion in 8..17) {
+for (javaVersion in 8..20) {
     tasks.register<Test>("testsOn$javaVersion") {
         javaLauncher.set(javaToolchains.launcherFor {
             languageVersion.set(JavaLanguageVersion.of(javaVersion))
