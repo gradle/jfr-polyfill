@@ -38,6 +38,6 @@ jobs:
         run: echo "JDK8=$JAVA_HOME" >> $GITHUB_ENV
 
       - name: 'Build Polyfill'
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/actions/setup-gradle@v3
         with:
             arguments: "testsOn${{ matrix.java }}"
