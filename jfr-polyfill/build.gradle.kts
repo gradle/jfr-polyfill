@@ -99,3 +99,9 @@ signing {
     sign(publishing.publications["mavenJava"])
     useInMemoryPgpKeys(System.getenv("PGP_SIGNING_KEY"), System.getenv("PGP_SIGNING_KEY_PASSPHRASE"))
 }
+
+tasks.withType<Jar>().configureEach {
+    from(file("../LICENSE")) {
+        into("META-INF")
+    }
+}
