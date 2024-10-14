@@ -37,7 +37,7 @@ java {
 
 dependencies {
     testImplementation(project(":jfr-polyfill"))
-    testImplementation("org.spockframework:spock-core:2.1-groovy-3.0")
+    testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
 }
 
 for (javaVersion in 8..20) {
