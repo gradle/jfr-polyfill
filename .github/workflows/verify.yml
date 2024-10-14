@@ -37,7 +37,8 @@ jobs:
         shell: bash
         run: echo "JDK8=$JAVA_HOME" >> $GITHUB_ENV
 
-      - name: 'Build Polyfill'
+      - name: 'Set up Gradle'
         uses: gradle/actions/setup-gradle@v4
-        with:
-            arguments: "testsOn${{ matrix.java }}"
+
+      - name: 'Build Polyfill'
+        run: "./gradlew testsOn${{ matrix.java }}"
