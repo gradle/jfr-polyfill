@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: 'Set up JDK ${{ matrix.java }}'
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         if: matrix.java != 8
         with:
             distribution: ${{ matrix.java < 17 && 'adopt' || 'temurin' }}
@@ -29,7 +29,7 @@ jobs:
         run: echo "JDK${{ matrix.java }}=$JAVA_HOME" >> $GITHUB_ENV
 
       - name: 'Set up JDK 8'
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
             distribution: 'temurin'
             java-version: 8
