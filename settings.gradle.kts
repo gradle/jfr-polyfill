@@ -25,7 +25,7 @@
  */
 pluginManagement {
     plugins {
-        id("com.gradle.enterprise") version "3.10"
+        id("com.gradle.develocity") version "3.18.1"
         id("com.gradle.enterprise.gradle-enterprise-conventions-plugin") version "0.7.5"
         id("io.github.gradle-nexus.publish-plugin") version "1.3.0"
     }
@@ -33,7 +33,7 @@ pluginManagement {
 
 
 plugins {
-    id("com.gradle.enterprise")
+    id("com.gradle.develocity")
     id("com.gradle.enterprise.gradle-enterprise-conventions-plugin")
 }
 
