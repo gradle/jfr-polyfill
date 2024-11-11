@@ -30,7 +30,7 @@ plugins {
     `java-library`
     `maven-publish`
     signing
-    id("me.champeau.gradle.japicmp") version "0.4.4"
+    id("me.champeau.gradle.japicmp") version "0.4.5"
 }
 
 java {
