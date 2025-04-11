@@ -25,8 +25,8 @@
  */
 pluginManagement {
     plugins {
-        id("com.gradle.develocity") version "3.19.2"
-        id("com.gradle.enterprise.gradle-enterprise-conventions-plugin") version "0.7.5"
+        id("com.gradle.develocity") version "4.0"
+        id("io.github.gradle.gradle-enterprise-conventions-plugin") version "0.10.2"
         id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
     }
 }
@@ -34,7 +34,7 @@ pluginManagement {
 
 plugins {
     id("com.gradle.develocity")
-    id("com.gradle.enterprise.gradle-enterprise-conventions-plugin")
+    id("io.github.gradle.gradle-enterprise-conventions-plugin")
 }
 
 dependencyResolutionManagement {
