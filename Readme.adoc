@@ -3,6 +3,9 @@ https://central.sonatype.com/artifact/org.gradle.jfr.polyfill/jfr-polyfill[image
 https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml[image:https://github.com/gradle/jfr-polyfill/actions/workflows/verify.yml/badge.svg?branch=main[GitHub Workflow Status]]
 
 = JFR Polyfill
+
+NOTE: This library was designed to provide compatibility used with older Java 9 and 10 versions. It is feature complete and will not be updated in the future.
+
 https://en.wikipedia.org/wiki/JDK_Flight_Recorder[JDK Flight Recorder (JFR)] is a high performance event recorder built into the Java virtual machine.
 It was open sourced with OpenJDK 11 and then back-ported to OpenJDK 8.
 
